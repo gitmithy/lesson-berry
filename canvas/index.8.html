@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+<style type="text/css">
+#canvas{
+	background: #000;
+}	
+</style>				
+	</head>
+	<body>
+
+<!-- 方法	描述
+scale()	缩放当前绘图至更大或更小
+rotate()	旋转当前绘图
+translate()	重新映射画布上的 (0,0) 位置
+transform()	替换绘图的当前转换矩阵
+setTransform()	将当前转换重置为单位矩阵，然后运行 transform() -->
+	
+		<canvas id="canvas" width="" height=""></canvas>
+	
+	
+	<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var cx = canvas.width = 400;
+    var cy = canvas.height = 400;
+
+    context.strokeStyle = 'white';
+    context.strokeRect(5,5,50,25);
+	
+    context.scale(2,2);
+    context.strokeRect(5,5,50,25);
+	
+    context.scale(2,2);
+    context.strokeRect(5,5,50,25);
+		
+	</script>
+	</body>
+</html>

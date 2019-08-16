@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+<style type="text/css">
+#canvas{
+	background: #000;
+}	
+</style>				
+	</head>
+	<body>
+
+<!-- 方法	描述
+scale()	缩放当前绘图至更大或更小
+rotate()	旋转当前绘图
+translate()	重新映射画布上的 (0,0) 位置
+transform()	替换绘图的当前转换矩阵
+setTransform()	将当前转换重置为单位矩阵，然后运行 transform() -->
+	
+<!-- 通过上述两个例子，我们会发现一个特点，在进行图形变换的时候，我们需要画布旋转，然后再绘制图形。
+
+这样的结果是，我们使用的图形变换的方法都是作用在画布上的，既然对画布进行了变换，那么在接下来绘制的图形都会变换。这点是需要注意的。
+
+比如我对画布使用了 rotate(20*Math.PI/180) 方法，就是将画布旋转了 20°，然后之后绘制的图形都会旋转 20°。	 -->
+	
+		<canvas id="canvas" width="" height=""></canvas>
+	
+	
+	<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var cx = canvas.width = 400;
+    var cy = canvas.height = 400;
+
+    context.fillStyle = 'white';
+    context.rotate(20*Math.PI/180);
+    context.fillRect(70,30,200,100);
+		
+	</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+<style type="text/css">
+#canvas{
+	background: #000;
+}	
+</style>				
+	</head>
+	<body>
+		
+	
+		<canvas id="canvas" width="" height=""></canvas>
+	
+	
+	<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var cx = canvas.width = 400;
+    var cy = canvas.height = 400;
+
+    context.beginPath();
+
+    context.moveTo(10,10);
+    context.lineTo(100,100);
+    context.lineWidth = 10;
+    context.lineCap = 'round';
+    context.strokeStyle = '#fff';
+    context.stroke()
+		
+		
+	</script>
+	</body>
+</html>

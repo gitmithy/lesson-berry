@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+<style type="text/css">
+#canvas{
+	background: #000;
+}	
+</style>				
+	</head>
+	<body>
+<!-- fillStyle	设置或返回用于填充绘画的颜色、渐变或模式
+strokeStyle	设置或返回用于笔触的颜色、渐变或模式
+shadowColor	设置或返回用于阴影的颜色
+shadowBlur	设置或返回用于阴影的模糊级别
+shadowOffsetX	设置或返回阴影距形状的水平距离
+shadowOffsetY	设置或返回阴影距形状的垂直距离		 -->
+	
+		<canvas id="canvas" width="" height=""></canvas>
+	
+	
+	<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var cx = canvas.width = 400;
+    var cy = canvas.height = 400;
+
+    context.beginPath();
+    context.arc(100,100,50,0,2*Math.PI,false);
+    context.fillStyle = '#fff';
+    context.shadowBlur = 20;
+    context.shadowColor = '#fff';
+    context.fill()
+		
+	</script>
+	</body>
+</html>
