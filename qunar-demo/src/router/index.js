@@ -15,6 +15,7 @@ export default new Router({
     {
       path: '/list',
       name: 'List',
+      // 这里的component名要与import中的名相同
       component: List
     }
   ]
