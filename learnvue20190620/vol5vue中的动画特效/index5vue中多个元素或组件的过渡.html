@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue中使用animate.css库</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/velocity/2.0.5/velocity.js"></script>
+<style>
+			.fade-enter,.fade-leave-to{
+				opacity: 0;
+			} 
+			.fade-enter-active,.fade-leave-active{
+				transition:opacity 1s;
+			}
+</style>
+	</head>
+	<body>
+		
+		<div id="root">
+		<!-- 如果transition中不写name，默认的css标签是v-xxxx -->
+		<!-- 写type="transition"表示动画时间以transition为准 -->
+		<!-- transition中可设置mode -->
+		<!-- mode有in-out out-in -->
+			<transition name="fade" mode="in-out">
+					<!-- v-show="show"也可以 -->
+					<div v-if="show" key="hellow">hello world</div>
+					<div v-else key="bye">Bye world</div>
+			</transition>
+            
+            <button @click="handleBtnClick">toggle</button>
+		</div>
+	<script type="text/javascript">	
+		var app=new Vue({
+			el:'#root',
+			data:{
+                show:true
+			},
+			methods: {
+				handleBtnClick:function(){
+					this.show=!this.show
+				},
+				// handleBeforeEnter:function(el){
+				// 	el.style.opacity=0
+				// },
+				// handleEnter:function(el,done){
+				// 	Velocity(el,{
+				// 		opacity:1
+				// 	},{
+				// 		duration:1000,
+				// 		complete:done
+				// 	})
+				// },
+				// handleAfterEnter:function(el){
+				// 	// el.style.color="#000"
+				// 	alert("动画结束")
+
+				// }
+			},
+		})
+		
+	</script>
+	</body>
+</html>

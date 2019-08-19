@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<!-- ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例：         -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+			<counter ref="one" @change="handleChange"></counter>
+			<counter ref="two"  @change="handleChange"></counter>
+			<div>{{total}}</div>
+		</div>
+
+
+    <script type="text/javascript">
+        Vue.component('counter',{
+            template:'<div @click="handleClick">{{number}}</div>',
+			data:function(){
+				return{
+					number:0
+				}
+			},
+			methods: {
+				handleClick:function(){
+					this.number++
+
+					// 触发父组件中change中的handleChange事件
+					this.$emit("change")
+				}
+			},
+        })
+
+		var app=new Vue({
+			el:'#root',
+			data:{
+				total:0
+			},
+			methods:{
+				handleChange:function(){
+					this.total=this.$refs.one.number + this.$refs.two.number
+					console.log(this.$refs.one.number)
+					console.log(this.$refs.two.number)
+				}
+			}
+		})
+	</script>
+	</body>
+</html>

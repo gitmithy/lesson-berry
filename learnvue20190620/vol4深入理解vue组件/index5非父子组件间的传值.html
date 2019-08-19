@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>非父子组件间传值(Bus/总线/发布订阅模式/观察者模式)</title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+			
+			<child content="dell"></child>
+			<child content="lee" ></child>
+
+		</div>
+
+
+	<script type="text/javascript">
+		Vue.prototype.bus=new Vue()
+		
+		Vue.component('child',{
+			
+			data:function(){
+				return{
+					selfContent:this.content
+				}
+			},
+			template:'<div @click="handleClick">{{selfContent}}</div>',
+			props:{
+				content:String
+			},
+			methods: {
+				handleClick:function(){
+					// 将改变的值暂时存储在原型创建的bus(bus做总线)中再传递给其他子组件
+					this.bus.$emit('change',this.selfContent)
+				}
+			},
+			mounted:function(){
+				var this_=this
+				this.bus.$on('change',function(msg){
+					this_.selfContent=msg
+				})
+			}
+		})
+		var app=new Vue({
+			el:'#root'
+		})
+	</script>
+	</body>
+</html>

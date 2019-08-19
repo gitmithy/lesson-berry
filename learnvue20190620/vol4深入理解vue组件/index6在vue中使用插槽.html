@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue中的插槽-一般情况下父组件向子组件传值得用法</title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<div id="root">
+			<child content='<p>Dell</p>'>
+				
+			</child>
+		</div>
+	<script type="text/javascript">
+		Vue.component('child',{
+			props:['content'],
+			template:`<div>
+						<p>hello</p>
+						<div v-html="this.content">{{content}}</div> 
+					</div>`
+		})
+		var app=new Vue({
+			el:'#root'
+		})
+	</script>
+	</body>
+</html>

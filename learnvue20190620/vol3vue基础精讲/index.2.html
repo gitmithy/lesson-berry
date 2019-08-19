@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+			<!-- <div v-on:click="handleClick">{{content}}</div> -->
+			<!-- 等于 -->
+			<div @click="handleClick">{{content}}</div>
+			<item></item>
+		</div>
+
+	<!-- <script type="text/javascript">
+		var dom=document.getElementById('app');
+		dom.innerHTML='hello world'
+	</script> -->
+	<script type="text/javascript">
+
+		Vue.component('item',{
+			template:'<div>hello world</div>'
+		})
+
+
+		var app=new Vue({
+			el:'#root',
+			data:{
+				content:'hello world2'
+			},
+			methods: {
+				handleClick:function(){
+					alert("helklo");
+				}
+			}
+		})
+		// setTimeout(function(){
+		// 	app.$data.content='bye'
+		// },2000)
+	</script>
+	</body>
+</html>

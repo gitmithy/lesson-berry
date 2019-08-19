@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+			<!-- 下面是错误写法，应该写在组件的template中 -->
+			<child @click="handleClick"></child>
+		</div>
+
+
+    <script type="text/javascript">
+		Vue.component('child',{
+			template:'<div @click="handleClick">child</div>',
+			methods: {
+				handleClick:function(){
+					// alert("child click")
+					// 向外触发child中的@ckick自定义事件
+					this.$emit('click')
+				}
+			},
+		})
+		var app=new Vue({
+			el:'#root',
+			methods: {
+				handleClick:function(){
+					alert("click")
+				}
+			},
+		})
+	</script>
+	</body>
+</html>

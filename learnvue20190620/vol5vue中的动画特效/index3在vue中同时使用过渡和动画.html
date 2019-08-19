@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue中使用animate.css库</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css" rel="stylesheet">
+		<style>
+			.fade-enter,.fade-leave-to{
+				opacity: 0;
+			} 
+			.fade-enter-active,.fade-leave-active{
+				transition:opacity 1s;
+			}
+		
+
+		</style>
+	</head>
+	<body>
+		
+		<div id="root">
+		<!-- 如果transition中不写name，默认的css标签是v-xxxx -->
+		<!-- 写type="transition"表示动画时间以transition为准 -->
+			<transition 
+			type="transition"   
+			:duration="{
+				enter:5000,
+				leave:10000
+			}"
+			name="fade" 
+			appear
+			enter-active-class="animated swing fade-enter-active" 
+			leave-active-class="animated shake fade-leave-active"
+			appear-active-class="animated swing">
+					<!-- v-show="show"也可以 -->
+					<div v-if="show">hello world</div>
+			</transition>
+            
+            <button @click="handleBtnClick">toggle</button>
+		</div>
+	<script type="text/javascript">	
+		var app=new Vue({
+			el:'#root',
+			data:{
+                show:true
+			},
+			methods: {
+				handleBtnClick:function(){
+					this.show=!this.show
+				}
+			},
+		})
+		
+	</script>
+	</body>
+</html>

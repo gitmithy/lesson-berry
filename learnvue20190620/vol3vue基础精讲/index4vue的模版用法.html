@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+			<!-- 三种模版语法 -->
+			<div>{{name}}</div>
+			{{name}}
+			<!-- {{name}} 等价于-->
+			<!-- v-后面其实都是js表达式 -->
+			<div v-text="name + 'lee' "></div> <!-- 注意必须带上空格-->
+			<div v-html="name + 'lee' "></div>
+
+			<div v-bind:title="name">name写在title中</div>
+		</div>
+
+
+	<script type="text/javascript">
+		var app=new Vue({
+			el:'#root',
+			data:{
+				name:"<h1>v-html等价于$data中的data{name}</h1>"
+			},
+			beforeCreate:function() {
+				console.log("beforeCreate")
+			},
+			created() {
+				console.log("created");
+			},
+			beforeMount() {
+				console.log(this.$el);
+				console.log("beforeMount");
+			},
+			mounted() {
+				console.log(this.$el);
+				console.log("mounted");
+			},
+
+
+			// when vm.$destroy() is called
+			beforeDestroy() {
+				console.log("beforeDestroy");
+			},
+			destroyed() {
+				console.log("destroyed");
+			},	
+
+			// when data changes
+			beforeUpdate() {
+				console.log("beforeUpdate");
+			},
+			updated() {
+				console.log("updated");
+			},
+
+
+		})
+		// setTimeout(function(){
+		// 	app.$data.content='bye'
+		// },2000)
+	</script>
+	</body>
+</html>

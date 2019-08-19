@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+            <counter :count="3" @numchange="handleNumincrease"></counter>
+			<counter :count="2" @numchange="handleNumincrease"></counter>
+			<div>{{total}}</div>
+		</div>
+
+
+    <script type="text/javascript">
+        
+        var counter={
+            props:['count'],
+            template:'<div @click="handleClick">{{number}}</div>',
+			data:function(){
+				return{
+					number:this.count
+
+					// 子组件用number修改父组件中的count
+				}
+			},
+			methods: {
+                handleClick:function(){
+                    this.number++
+
+					// 子组件向外触发事件向父组件传值
+					this.$emit('numchange',1)
+                }
+               
+            },
+        }
+
+		var app=new Vue({
+			el:'#root',
+            components:{
+                counter:counter
+            },
+			data:{
+				total:5
+			},
+			methods:{
+
+				// this.$emit('numchange',1)中传递的参数1名为step
+
+				handleNumincrease:function(step){
+					// alert(step)
+
+					this.total+=step
+				}
+			}
+		})
+	</script>
+	</body>
+</html>

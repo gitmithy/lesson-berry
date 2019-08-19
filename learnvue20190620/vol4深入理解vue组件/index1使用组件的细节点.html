@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+            <table>
+                <tbody>
+                    <tr is="row"></tr>
+                    <tr is="row"></tr>
+                    <tr is="row"></tr>
+                    <!-- 不能使用<row></row> -->
+                </tbody>
+            </table>
+		</div>
+
+
+    <script type="text/javascript">
+        Vue.component('row',{
+            // 子组件中的data必须是个函数。下面这样不行
+            // data:{
+            //     content:"this is a row"
+            // },
+            data:function(){
+                return{
+                    content:'this is a row'
+                }
+            },
+            template:'<tr><td>{{content}}</td></tr>'
+        })
+
+		var app=new Vue({
+			el:'#root',
+			data:{
+				content:'hello world2'
+			},
+			methods: {
+				handleClick:function(){
+					alert("helklo");
+				}
+			}
+		})
+	</script>
+	</body>
+</html>

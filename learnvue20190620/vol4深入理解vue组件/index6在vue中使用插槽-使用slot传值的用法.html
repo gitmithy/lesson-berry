@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue中的插槽-使用slot传值的用法</title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<div id="root">
+			<body_content>
+				<div class="header" slot="header">header</div>
+				<div class="footer" slot="footer">footer</div>
+			</body_content>
+		</div>
+	<script type="text/javascript">
+		Vue.component('body_content',{
+			props:['content'],
+			template:`<div>
+
+				<slot name="con">
+					<h1>默认值</h1>	
+				</slot>
+				<slot name="header"></slot>
+				<div class="content">content</div>
+				<slot name="footer"></slot>
+					</div>`
+		})
+		var app=new Vue({
+			el:'#root'
+		})
+	</script>
+	</body>
+</html>

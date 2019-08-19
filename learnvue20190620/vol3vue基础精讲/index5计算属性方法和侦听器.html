@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+		<div id="root">
+			<!-- {{firstName + " " + lastName}}
+			{{fullName}}
+			{{age}} -->
+			{{fullName}}
+			{{age}}
+		</div>
+
+
+	<script type="text/javascript">
+		var app=new Vue({
+			el:'#root',
+			data:{
+				firstName:"dell",
+				lastName:"lee",
+				fullName:"dell lee",
+				age:28
+			},
+			// 实现fullname的方法
+			// 方法一
+			// {{firstName + " " + lastName}}
+			// 方法二
+			// computed: {
+			// 	fullName:function(){
+			// 		console.log("计算了一次")
+			// 		return this.firstName+" "+this.lastName
+			// 	}
+			// },
+			// 方法三 直接使用fullName()
+			methods: {
+				fullName:function(){
+					console.log("计算了一次")
+					return this.firstName+" "+this.lastName
+				}
+			},
+			// 方法四
+			watch: {
+				firstName:function(){
+					console.log("计算了一次")
+					this.fullName=this.firstName+" "+this.lastName
+				},
+				lastName:function(){
+					console.log("计算了一次")
+					this.fullName=this.firstName+" "+this.lastName
+				}
+			},
+			beforeCreate:function() {
+				console.log("beforeCreate")
+			},
+			created() {
+				console.log("created");
+			},
+			beforeMount() {
+				console.log(this.$el);
+				console.log("beforeMount");
+			},
+			mounted() {
+				console.log(this.$el);
+				console.log("mounted");
+			},
+
+
+			// when vm.$destroy() is called
+			beforeDestroy() {
+				console.log("beforeDestroy");
+			},
+			destroyed() {
+				console.log("destroyed");
+			},	
+
+			// when data changes
+			beforeUpdate() {
+				console.log("beforeUpdate");
+			},
+			updated() {
+				console.log("updated");
+			},
+
+
+		})
+		// setTimeout(function(){
+		// 	app.$data.content='bye'
+		// },2000)
+	</script>
+	</body>
+</html>

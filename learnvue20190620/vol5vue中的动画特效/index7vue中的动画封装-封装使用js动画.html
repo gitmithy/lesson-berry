@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue中使用animate.css库</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/velocity/2.0.5/velocity.js"></script>
+
+	</head>
+	<body>
+		
+		<div id="root">
+		<!-- 如果transition中不写name，默认的css标签是v-xxxx -->
+		<!-- 写type="transition"表示动画时间以transition为准 -->
+			<!-- <transition 
+				name="fade"
+				
+				@before-enter="handleBeforeEnter"	
+				@enter="handleEnter"
+
+				@after-enter="handleAfterEnter"
+
+				@before-leave=""
+				@leave=""
+
+				@after-leave=""
+
+			>-->
+				<fade :show="show">
+					<div>hello world</div>	
+				</fade>
+
+					<!-- v-show="show"也可以 -->
+					<!-- <div v-if="show">hello world</div> -->
+		
+            
+            <button @click="handleBtnClick">toggle</button>
+		</div>
+	<script type="text/javascript">	
+
+		Vue.component('fade', {
+			props:['show'],
+			template:`
+				<transition @before-enter="handleBeforeEnter" @enter="handleEnter">
+					<slot v-if="show"></slot>	
+				</transition>
+			`,
+			methods:{
+				handleBeforeEnter:function(el){
+					console.log('beforeenter')
+					console.log(el)
+					el.style.color='red'
+				},
+				handleEnter:function(el,done){
+					setTimeout(()=>{
+						el.style.color='green'
+					},2000)
+					setTimeout(()=>{
+						// 调用done事件表示动画已经执行完毕
+						done()
+					},4000)					
+				},
+				handleAfterEnter:function(el){
+					el.style.color="#000"
+				}
+			}
+		})
+
+		var app=new Vue({
+			el:'#root',
+			data:{
+                show:true
+			},
+			methods: {
+				handleBtnClick:function(){
+					this.show=!this.show
+				},
+			},
+		})
+		
+	</script>
+	</body>
+</html>
