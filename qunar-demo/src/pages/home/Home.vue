@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <HomeHeader></HomeHeader>
+    <HomeHeader :city="city"></HomeHeader>
     <HomeSwiper></HomeSwiper>
     <HomeIcons></HomeIcons>
     <Group></Group>
@@ -26,6 +26,11 @@ export default {
     HomeRecommend,
     Group,
     HomeWeekend
+  },
+  data(){
+    return{
+      city:''
+    }
   },
   methods: {
     getHomeInfo(){
