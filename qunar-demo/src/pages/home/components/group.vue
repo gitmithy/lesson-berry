@@ -17,7 +17,7 @@
     </div>
     <ul class="mp-hotsale-list">
       <li class="mp-hotsale-item"
-      v-for="item of GroupList" :key="item.id"
+      v-for="item of list" :key="item.id"
       >
         <a
           class="mp-fulllink"
@@ -56,67 +56,8 @@
 <script>
 export default {
   name: "Group",
-  data(){
-    return{
-      GroupList:[
-      {
-        id:'0001',
-        link:'http://touch.piao.qunar.com/touch/detail.htm?id=457472&amp;from=as_recommend_sight',
-        title:'上海迪士尼乐园',
-        price:'352',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
-        tagimgUrl:'http://img1.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png'
-      },
-      {
-        id:'0002',
-        link:'http://touch.piao.qunar.com/touch/detail.htm?id=457472&amp;from=as_recommend_sight',
-        title:'上海迪士尼乐园',
-        price:'352',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
-        tagimgUrl:'http://img1.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png'
-      },
-            {
-        id:'0003',
-        link:'http://touch.piao.qunar.com/touch/detail.htm?id=457472&amp;from=as_recommend_sight',
-        title:'上海迪士尼乐园',
-        price:'352',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
-        tagimgUrl:'http://img1.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png'
-      },
-            {
-        id:'0004',
-        link:'http://touch.piao.qunar.com/touch/detail.htm?id=457472&amp;from=as_recommend_sight',
-        title:'上海迪士尼乐园',
-        price:'352',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
-        tagimgUrl:'http://img1.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png'
-      },
-            {
-        id:'0005',
-        link:'http://touch.piao.qunar.com/touch/detail.htm?id=457472&amp;from=as_recommend_sight',
-        title:'上海迪士尼乐园',
-        price:'352',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
-        tagimgUrl:'http://img1.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png'
-      },
-            {
-        id:'0006',
-        link:'http://touch.piao.qunar.com/touch/detail.htm?id=457472&amp;from=as_recommend_sight',
-        title:'上海迪士尼乐园',
-        price:'352',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
-        tagimgUrl:'http://img1.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png'
-      },
-            {
-        id:'0007',
-        link:'http://touch.piao.qunar.com/touch/detail.htm?id=457472&amp;from=as_recommend_sight',
-        title:'上海迪士尼乐园',
-        price:'352',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
-        tagimgUrl:'http://img1.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png'
-      },
-      ]
-    }
+  props:{
+    list:Array
   }
 
 };

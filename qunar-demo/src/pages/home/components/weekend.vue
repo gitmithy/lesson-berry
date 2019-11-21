@@ -2,7 +2,7 @@
   <div>
     <div class="title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="item of weekendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt />
         </div>
@@ -22,39 +22,8 @@
 <script>
 export default {
   name: "HomeWeekend",
-  data() {
-    return {
-      weekendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg",
-          title: "上海迪士尼乐园",
-          desc: "全球最大的迪士尼城堡"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
-          title: "上海迪士尼乐园",
-          desc: "全球最大的迪士尼城堡"
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
-          title: "上海迪士尼乐园",
-          desc: "全球最大的迪士尼城堡"
-        },
-        {
-          id: "0004",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
-          title: "上海迪士尼乐园",
-          desc: "全球最大的迪士尼城堡"
-        }
-      ]
-    };
+  props:{
+    list:Array
   }
 };
 </script>
