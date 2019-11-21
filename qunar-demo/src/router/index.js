@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // @代表src目录
 import Home from '@/pages/home/Home.vue'
 import List from '@/pages/list/List.vue'
+import city from '@/pages/city/City.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -17,6 +18,12 @@ export default new Router({
       name: 'List',
       // 这里的component名要与import中的名相同
       component: List
+    },
+    {
+      path: '/city',
+      name: 'City',
+      // 这里的component名要与import中的名相同
+      component: city
     }
   ]
 })
