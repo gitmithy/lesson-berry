@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="banner">
     <img class="banner-image" src="//img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg" alt="" srcset="">
     <div class="banner-info">
@@ -11,10 +12,17 @@
       </div>
     </div>
   </div>
+  <CommonGallary></CommonGallary>
+</div>
+
 </template>
 <script>
+import CommonGallary from 'common/gallary/Gallary'
 export default {
-  name:'DetailBanner'
+  name:'DetailBanner',
+  components:{
+    CommonGallary
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -33,6 +41,7 @@ export default {
     bottom 0
     line-height .6rem
     color #fff
+    background-image linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.8))
     .banner-title
       flex 1
       font-size .32rem

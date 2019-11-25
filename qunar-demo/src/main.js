@@ -11,7 +11,7 @@ import 'swiper/dist/css/swiper.css'
 import 'styles/reset.css'
 // 1像素边框问题解决
 import 'styles/border.css'
-import 'styles/iconfont.css'
+import 'styles/iconfont/iconfont.css'
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
