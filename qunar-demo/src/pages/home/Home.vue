@@ -17,6 +17,7 @@ import HomeRecommend from './components/Recommend'
 import Group from './components/group'
 import HomeWeekend from './components/weekend'
 import axios from 'axios'
+import {mapState} from 'vuex'
 export default {
   name: 'Home',
   components:{
@@ -29,6 +30,7 @@ export default {
   },
   data(){
     return{
+      lastCity:'',
       swiperList:[],
       iconList:[],
       GroupList:[],
@@ -36,9 +38,12 @@ export default {
       weekendList:[]
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getHomeInfo(){
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSuccess)
     },
     getHomeInfoSuccess(res){
@@ -55,7 +60,18 @@ export default {
     }
   },
   mounted() {
+    // console.log('mounted')
+    this.lastCity=this.city
     this.getHomeInfo();
+  },
+  // 当使用keepalive时会多出一个activated函数
+  // 页面重新显示时执行
+  activated() {
+    if(this.lastCity!==this.city){
+      this.lastCity=this.city
+      this.getHomeInfo();
+    }
+    // console.log('activated')
   },
 }
 </script>
