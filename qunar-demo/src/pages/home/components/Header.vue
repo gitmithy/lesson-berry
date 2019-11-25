@@ -17,11 +17,15 @@
 </div>
 </template>
 <script>
+
+// 使用mapState组件将this.$store.state.city转为this.city
+import {mapState} from 'vuex'
+
 export default {
   name: 'HomeHeader',
-  props:{
-    city:String
-  }
+  computed: {
+    ...mapState(['city'])
+  },
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -50,7 +54,8 @@ export default {
     color #ccc
     padding-left 0.1rem
    .header-right
-      width:1.24rem
+      min-width:1.04rem
+      padding 0 .1rem
       float:right
       text-align center
       color #fff !important

@@ -5,7 +5,12 @@
   </div>
   <div class="search-content" ref="search" v-show="keyword">
     <ul>
-      <li class="search-item border-bottom" :key="item.id" v-for="item of list">
+      <li
+      class="search-item border-bottom"
+      :key="item.id"
+      v-for="item of list"
+      @click="handleCityclick(item.name)"
+      >
         {{item.name}}
       </li>
       <li class="search-item border-bottom"
@@ -20,6 +25,7 @@
 
 </template>
 <script>
+import {mapMutations} from 'vuex'
 import Bscroll from 'better-scroll'
 export default {
   name:'CitySearch',
@@ -32,6 +38,17 @@ export default {
       list:[],
       timer:null
     }
+  },
+  methods: {
+    handleCityclick(city){
+
+      // this.$store.commit('changeCity',city)
+      // 加入mapMutations后即可将上面的改成下面的
+      this.changeCity(city)
+
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
   computed: {
     hasNoDate(){

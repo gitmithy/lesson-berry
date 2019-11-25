@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import fastClick from 'fastClick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store'
 // require styles
 import 'swiper/dist/css/swiper.css'
 import 'styles/reset.css'
@@ -18,6 +19,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store, /* 如果文件名一样直接写 如果不一样，写store:xxxx */
   components: { App },
   template: '<App/>'
 })
