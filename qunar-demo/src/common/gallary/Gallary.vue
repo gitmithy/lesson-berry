@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" @click="handleGallaryClick">
     <div class="wrapper">
       <swiper :options="swiperOptions">
         <!-- slides -->
@@ -32,11 +32,7 @@ export default {
     imgs: {
       type:Array,
       default(){
-        return [
-          {url:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_r_800x800_d6a63068.jpg'},
-          {url:'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_r_800x800_d6a63068.jpg'},
-
-        ]
+        return []
       }
     }
   },
@@ -44,9 +40,16 @@ export default {
     return {
       swiperOptions: {
         pagination: ".swiper-pagination",
-        paginationType: "fraction"
+        paginationType: "fraction",
+        observer:true,
+        observeParents:true,
       }
     };
+  },
+  methods: {
+    handleGallaryClick () {
+      this.$emit("close")
+    }
   },
 
 };
