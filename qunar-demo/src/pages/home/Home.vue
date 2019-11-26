@@ -67,6 +67,7 @@ export default {
   // 当使用keepalive时会多出一个activated函数
   // 页面重新显示时执行
   activated() {
+    document.documentElement.scrollTop=0
     if(this.lastCity!==this.city){
       this.lastCity=this.city
       this.getHomeInfo();
