@@ -8,9 +8,7 @@
         >
           <div
             class="mp-imgswipe-img"
-            :style='{backgroundImage:"url(" + item.url + ")"}'
-
-
+            :style='{backgroundImage:"url(" + item + ")"}'
           ></div>
         </swiper-slide>
 

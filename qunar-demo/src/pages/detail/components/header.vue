@@ -44,16 +44,15 @@ export default {
       }else{
         this.showAbs=true
       }
-      // console.log(document.documentElement.scrollTop)
+      //  console.log(document.documentElement.scrollTop)
     }
   },
   // 页面出现和刷新的时候执行
-  activated(){
-    document.documentElement.scrollTop=0
+  mounted(){
     window.addEventListener('scroll',this.handleScroll)
   },
   // 页面隐藏的时候执行
-  deactivated() {
+  unmounted() {
     window.removeEventListener('scroll',this.handleScroll)
   },
 
