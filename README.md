@@ -4,10 +4,11 @@
 
 
 ###### 1.canvas是掘金canvas小册  
-###### 2.qunar-demo基于vue-cli2.0模板  
-###### 3.qunar基于vue-cli3.0模板  
-###### 4.vue去哪儿网基础学习内容  
-###### 5.工程构架工具学习  
+###### 2.qunar-basic-learn vue基础学习内容  
+###### 3.qunar-demo基于vue-cli2.0模板  
+###### 4.qunar基于vue-cli3.0模板  
+###### 5.vue去哪儿网基础学习内容  
+###### 6.工程构架工具学习  
 
 **待学习内容**
 
