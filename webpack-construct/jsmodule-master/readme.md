@@ -5,9 +5,11 @@
 
 ###### 1.CMD  
 ###### 2.AMD  
+###### 3.UMD  
 
 **CMD和AMD区别**
 
 ###### 1.requirejs为amd，amd特点为依赖前置，提前执行
 ###### 2. seajs为cmd，cmd特点为懒加载
+###### 3. UMD会先进行判断
 
