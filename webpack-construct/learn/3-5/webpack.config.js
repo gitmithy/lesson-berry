@@ -5,6 +5,7 @@ module.exports={
     entry:{
         'pageA':'./src/pageA',
         'pageB':'./src/pageB',
+        'vendor':['lodash']
     },
     output:{
         path:path.resolve(__dirname,'./dist'),
@@ -35,7 +36,7 @@ module.exports={
                 }
             }
         }),
-
+        // 提取pagea和pageb的公共代码
         new webpack.optimize.RuntimeChunkPlugin({
             name: "manifest"
         }),

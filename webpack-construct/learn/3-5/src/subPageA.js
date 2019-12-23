@@ -1,2 +1,2 @@
-import './moduleA'
+import './module'
 export default 'subPageA'
