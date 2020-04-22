@@ -3,12 +3,10 @@
     <div class="wrapper">
       <swiper :options="swiperOptions">
         <!-- slides -->
-        <swiper-slide v-for="(item,index) in imgs"
-        :key="index"
-        >
+        <swiper-slide v-for="(item, index) in imgs" :key="index">
           <div
             class="mp-imgswipe-img"
-            :style='{backgroundImage:"url(" + item + ")"}'
+            :style="{ backgroundImage: 'url(' + item + ')' }"
           ></div>
         </swiper-slide>
 
@@ -27,28 +25,41 @@ export default {
   props: {
     imgs: {
       type: Array,
-      default () {
-        return []
+      default() {
+        return [];
       }
     }
   },
   data () {
     return {
       swiperOptions: {
+<<<<<<< HEAD
         pagination: '.swiper-pagination',
         paginationType: 'fraction',
+=======
+        pagination: ".swiper-pagination",
+        paginationType: "fraction",
+>>>>>>> c76df1890e20d72ba0b9f6a8300208cbaf656469
         observer: true,
         observeParents: true
       }
     }
   },
   methods: {
+<<<<<<< HEAD
     handleGallaryClick () {
       this.$emit('close')
     }
   }
 
 }
+=======
+    handleGallaryClick() {
+      this.$emit("close");
+    }
+  }
+};
+>>>>>>> c76df1890e20d72ba0b9f6a8300208cbaf656469
 </script>
 <style lang="stylus" scoped>
 .swiper-container {
