@@ -12,8 +12,6 @@
           ></div>
         </swiper-slide>
 
-
-
         <!-- Optional controls -->
         <div class="swiper-pagination" slot="pagination"></div>
         <!-- <div class="swiper-button-prev" slot="button-prev"></div>
@@ -25,32 +23,32 @@
 </template>
 <script>
 export default {
-  name: "CommonGallery",
+  name: 'CommonGallery',
   props: {
     imgs: {
-      type:Array,
-      default(){
+      type: Array,
+      default () {
         return []
       }
     }
   },
-  data() {
+  data () {
     return {
       swiperOptions: {
-        pagination: ".swiper-pagination",
-        paginationType: "fraction",
-        observer:true,
-        observeParents:true,
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        observer: true,
+        observeParents: true
       }
-    };
+    }
   },
   methods: {
     handleGallaryClick () {
-      this.$emit("close")
+      this.$emit('close')
     }
-  },
+  }
 
-};
+}
 </script>
 <style lang="stylus" scoped>
 .swiper-container {

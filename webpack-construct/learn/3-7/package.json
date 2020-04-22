@@ -9,13 +9,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "webpack": "^4.41.4"
+    "mini-css-extract-plugin": "^0.9.0"
   },
   "devDependencies": {
     "css-loader": "^3.4.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "purgecss-webpack-plugin": "^1.6.0",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "sass-loader": "^8.0.1",
     "style-loader": "^1.1.1",
-    "uglifyjs-webpack-plugin": "^2.2.0"
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.5"
   }
 }
